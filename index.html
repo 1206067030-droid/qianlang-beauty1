@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>前浪貿易有限公司 - 美容儀器專家</title>
-  <meta name="description" content="前浪貿易有限公司專注於引進國際頂級美容儀器，提供LED光療美容儀、紅光面罩、潤眼儀等高品質護膚產品。">
+  <title>前浪貿易有限公司 - 美容儀器OEM/ODM專家</title>
+  <meta name="description" content="前浪貿易有限公司專注於美容儀器OEM/ODM定制服務，提供LED光療美容儀、紅光面罩、潤眼儀等高品質產品的研發設計與製造。">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,25 +17,21 @@
             'primary-dark': '#FF69B4',
             'secondary': '#FFFFFF',
             'accent': '#FF1493',
+            'oem': '#9333EA',
           },
         },
       },
     }
   </script>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
+    html { scroll-behavior: smooth; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.4); } 50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.8); } }
     .fade-in { animation: fadeIn 0.6s ease-out forwards; }
     .slide-in { animation: slideIn 0.6s ease-out forwards; }
+    .oem-badge { animation: pulse-glow 2s ease-in-out infinite; }
+    .modal-overlay { backdrop-filter: blur(4px); }
   </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900">
@@ -44,15 +40,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
-          <span class="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            前浪貿易
-          </span>
+          <span class="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">前浪貿易</span>
         </div>
         <div class="hidden md:flex items-center space-x-8">
-          <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-accent transition-colors">首頁</a>
-          <a href="#products" class="text-gray-700 dark:text-gray-300 hover:text-accent transition-colors">產品</a>
-          <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-accent transition-colors">關於我們</a>
-          <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-accent transition-colors">聯絡我們</a>
+          <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-accent transition-colors" data-translate="nav-home">首頁</a>
+          <a href="#products" class="text-gray-700 dark:text-gray-300 hover:text-accent transition-colors" data-translate="nav-products">產品</a>
+          <a href="#oem" class="text-purple-600 dark:text-purple-400 font-semibold hover:text-purple-700 transition-colors" data-translate="nav-oem">OEM服務</a>
+          <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-accent transition-colors" data-translate="nav-about">關於我們</a>
+          <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-accent transition-colors" data-translate="nav-contact">聯絡我們</a>
         </div>
         <div class="flex items-center space-x-3">
           <button onclick="switchLang('zh')" class="px-3 py-1 text-sm font-medium rounded-full bg-primary text-white" id="lang-zh">繁</button>
@@ -70,6 +65,7 @@
       <div class="px-4 py-3 space-y-3">
         <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 dark:text-gray-300">首頁</a>
         <a href="#products" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 dark:text-gray-300">產品</a>
+        <a href="#oem" onclick="toggleMobileMenu()" class="block py-2 text-purple-600 font-semibold">OEM服務</a>
         <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 dark:text-gray-300">關於我們</a>
         <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 dark:text-gray-300">聯絡我們</a>
       </div>
@@ -77,21 +73,86 @@
   </nav>
 
   <!-- Hero区域 -->
-  <section id="home" class="pt-24 pb-16 bg-gradient-to-br from-primary-light via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
+  <section id="home" class="pt-24 pb-16 bg-gradient-to-br from-primary-light via-white to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-purple-900/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col lg:flex-row items-center gap-12">
         <div class="flex-1 text-center lg:text-left">
-          <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-6 slide-in">先進美容科技，煥發自然光彩</h1>
-          <p id="hero-subtitle" class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto lg:mx-0">探索我們的LED光療美容儀系列，享受專業護膚體驗</p>
-          <a href="#products" id="hero-button" class="inline-block bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">立即瀏覽</a>
+          <div class="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            🔥 專業OEM/ODM定制服務
+          </div>
+          <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-6 slide-in">先進美容科技 · OEM/ODM定制專家</h1>
+          <p id="hero-subtitle" class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto lg:mx-0">源頭工廠 · FDA認證 · 支援小批量定制 · 助您打造專屬品牌</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#oem" class="inline-block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">獲取OEM報價</a>
+            <a href="#products" class="inline-block bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">瀏覽產品</a>
+          </div>
         </div>
         <div class="flex-1 relative">
           <div class="w-full max-w-md mx-auto">
             <img src="images/FDA510K面颈一体LED红光面罩美容仪大排灯光疗嫩肤光子美颈仪.jpg" alt="美容儀展示" class="w-full h-auto rounded-2xl shadow-2xl" />
             <div class="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg">
               <div class="text-2xl font-bold text-accent">FDA</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">認證品質</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">510K認證</div>
             </div>
+            <div class="absolute -top-4 -left-4 bg-purple-600 text-white p-4 rounded-xl shadow-lg oem-badge">
+              <div class="text-2xl font-bold">OEM</div>
+              <div class="text-sm">支持定制</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OEM服务优势 -->
+  <section id="oem" class="py-16 bg-gradient-to-br from-purple-600 to-purple-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-4" data-translate="oem-title">一站式OEM/ODM定制服務</h2>
+      <p class="text-purple-200 text-center mb-12 max-w-2xl mx-auto" data-translate="oem-subtitle">從產品設計到包裝出貨，我們提供全方位的美容儀器定制解決方案</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center hover:bg-white/20 transition-colors">
+          <div class="text-4xl mb-4">🎨</div>
+          <h3 class="font-bold text-xl mb-2" data-translate="oem-1-title">Logo定制</h3>
+          <p class="text-purple-200 text-sm" data-translate="oem-1-desc">支持激光雕刻、印刷、包裝盒定制，打造您的專屬品牌形象</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center hover:bg-white/20 transition-colors">
+          <div class="text-4xl mb-4">📐</div>
+          <h3 class="font-bold text-xl mb-2" data-translate="oem-2-title">功能定制</h3>
+          <p class="text-purple-200 text-sm" data-translate="oem-2-desc">波長、功率、模式、溫度等參數均可按需調整，滿足不同市場需求</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center hover:bg-white/20 transition-colors">
+          <div class="text-4xl mb-4">📦</div>
+          <h3 class="font-bold text-xl mb-2" data-translate="oem-3-title">小批量起訂</h3>
+          <p class="text-purple-200 text-sm" data-translate="oem-3-desc">最低50件起訂，降低庫存風險，適合初創品牌和試單測試</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center hover:bg-white/20 transition-colors">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="font-bold text-xl mb-2" data-translate="oem-4-title">快速交付</h3>
+          <p class="text-purple-200 text-sm" data-translate="oem-4-desc">標準產品7-15天交付，定制產品15-30天交付，加急服務可選</p>
+        </div>
+      </div>
+      <div class="mt-12 bg-white/20 backdrop-blur-sm rounded-2xl p-8">
+        <h3 class="text-2xl font-bold mb-6 text-center" data-translate="oem-process-title">OEM合作流程</h3>
+        <div class="grid md:grid-cols-5 gap-4">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">1</div>
+            <p class="text-sm font-medium" data-translate="oem-step-1">諮詢需求</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">2</div>
+            <p class="text-sm font-medium" data-translate="oem-step-2">方案報價</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">3</div>
+            <p class="text-sm font-medium" data-translate="oem-step-3">確認樣品</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">4</div>
+            <p class="text-sm font-medium" data-translate="oem-step-4">簽署合同</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">5</div>
+            <p class="text-sm font-medium" data-translate="oem-step-5">生產交付</p>
           </div>
         </div>
       </div>
@@ -102,127 +163,11 @@
   <section id="products" class="py-16 bg-white dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row justify-between items-center mb-12">
-        <h2 id="products-title" class="text-3xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-0">熱門產品</h2>
-        <a href="#products" id="products-view-all" class="text-accent hover:text-primary-dark font-medium flex items-center gap-2">查看全部
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
+        <h2 id="products-title" class="text-3xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-0">熱銷產品</h2>
+        <span class="text-purple-600 dark:text-purple-400 font-medium" data-translate="products-note">點擊產品查看詳情，支持OEM定制</span>
       </div>
-      <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- 产品卡片 -->
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative overflow-hidden">
-            <img src="images/7色LED光子面罩美容儀家用脸部肤色软硅胶俄语红光面膜仪.jpg" alt="7色LED光子面罩美容儀" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">HK$1,280</div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2" id="p1-name">7色LED光子面罩美容儀</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" id="p1-desc">家用臉部膚色軟硅膠紅光面膜儀</p>
-            <div class="flex gap-2">
-              <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p1-cart">加入購物車</button>
-              <button class="flex-1 bg-accent hover:bg-pink-700 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p1-buy">立即購買</button>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative overflow-hidden">
-            <img src="images/FDA510K面颈一体LED红光面罩美容仪大排灯光疗嫩肤光子美颈仪.jpg" alt="FDA510K面頸一體LED紅光面罩" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">HK$1,580</div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2" id="p2-name">FDA510K面頸一體LED紅光面罩</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" id="p2-desc">大排燈光療嫩膚光子美頸儀</p>
-            <div class="flex gap-2">
-              <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p2-cart">加入購物車</button>
-              <button class="flex-1 bg-accent hover:bg-pink-700 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p2-buy">立即購買</button>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative overflow-hidden">
-            <img src="images/LED大排灯美容仪红外美容灯家用光子嫩肤红光支架理疗伸缩灯抗衰.jpg" alt="LED大排燈美容儀" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">HK$2,380</div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2" id="p3-name">LED大排燈美容儀</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" id="p3-desc">紅外美容燈家用光子嫩膚支架理療伸縮燈</p>
-            <div class="flex gap-2">
-              <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p3-cart">加入購物車</button>
-              <button class="flex-1 bg-accent hover:bg-pink-700 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p3-buy">立即購買</button>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative overflow-hidden">
-            <img src="images/充电款雾化润眼仪眼部雾化补水缓解干涩疲劳护眼洗护养护三合一.jpg" alt="充電款霧化潤眼儀" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">HK$680</div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2" id="p4-name">充電款霧化潤眼儀</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" id="p4-desc">眼部霧化補水緩解乾澀疲勞護眼</p>
-            <div class="flex gap-2">
-              <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p4-cart">加入購物車</button>
-              <button class="flex-1 bg-accent hover:bg-pink-700 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p4-buy">立即購買</button>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative overflow-hidden">
-            <img src="images/LED红光美眼仪光子嫩肤仪FDA护眼硅胶家用皱纹脸部提拉按摩美容仪.jpg" alt="LED紅光美眼儀" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">HK$880</div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2" id="p5-name">LED紅光美眼儀</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" id="p5-desc">FDA護眼硅膠家用皺紋臉部提拉按摩儀</p>
-            <div class="flex gap-2">
-              <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p5-cart">加入購物車</button>
-              <button class="flex-1 bg-accent hover:bg-pink-700 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p5-buy">立即購買</button>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative overflow-hidden">
-            <img src="images/一体式LED红光面罩磁吸无线光疗美容仪面罩FDA510K硅胶光疗大排灯.jpg" alt="一體式LED紅光面罩" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">HK$1,880</div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2" id="p6-name">一體式LED紅光面罩</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" id="p6-desc">磁吸無線光療美容儀面罩FDA510K</p>
-            <div class="flex gap-2">
-              <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p6-cart">加入購物車</button>
-              <button class="flex-1 bg-accent hover:bg-pink-700 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p6-buy">立即購買</button>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative overflow-hidden">
-            <img src="images/无线磁吸红光面罩FDA510K红蓝光LED大排灯面部嫩肤电子红外美容仪.jpg" alt="無線磁吸紅光面罩" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">HK$1,680</div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2" id="p7-name">無線磁吸紅光面罩</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" id="p7-desc">紅藍光LED大排燈面部嫩膚電子儀</p>
-            <div class="flex gap-2">
-              <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p7-cart">加入購物車</button>
-              <button class="flex-1 bg-accent hover:bg-pink-700 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p7-buy">立即購買</button>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative overflow-hidden">
-            <img src="images/红外光子嫩肤美唇仪LED面膜唇纹红蓝电动面部护理FDA510K美容仪.jpg" alt="紅外光子嫩膚美唇儀" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" />
-            <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">HK$580</div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2" id="p8-name">紅外光子嫩膚美唇儀</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" id="p8-desc">LED面膜唇紋紅藍電動面部護理儀</p>
-            <div class="flex gap-2">
-              <button class="flex-1 bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p8-cart">加入購物車</button>
-              <button class="flex-1 bg-accent hover:bg-pink-700 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium" id="p8-buy">立即購買</button>
-            </div>
-          </div>
-        </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-container">
+        <!-- 产品将通过JS动态生成 -->
       </div>
     </div>
   </section>
@@ -252,9 +197,9 @@
             <img src="images/充电款雾化润眼仪眼部雾化补水缓解干涩疲劳护眼洗护养护三合一.jpg" alt="潤眼儀" class="w-full h-48 object-cover rounded-xl" />
             <img src="images/无线磁吸红光面罩FDA510K红蓝光LED大排灯面部嫩肤电子红外美容仪.jpg" alt="紅光面罩" class="w-full h-48 object-cover rounded-xl" />
           </div>
-          <div class="absolute -bottom-4 -left-4 bg-accent text-white p-4 rounded-xl shadow-lg">
+          <div class="absolute -bottom-4 -left-4 bg-purple-600 text-white p-4 rounded-xl shadow-lg">
             <div class="text-3xl font-bold">10+</div>
-            <div class="text-sm">年行業經驗</div>
+            <div class="text-sm">年OEM經驗</div>
           </div>
         </div>
       </div>
@@ -270,24 +215,53 @@
           <form id="contact-form" class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
             <div class="mb-6">
               <label id="contact-name" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">姓名</label>
-              <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary" required />
+              <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500" required />
             </div>
             <div class="mb-6">
               <label id="contact-email" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">電子郵件</label>
-              <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary" required />
+              <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500" required />
             </div>
             <div class="mb-6">
-              <label id="contact-phone" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">電話</label>
-              <input type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary" />
+              <label id="contact-phone" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">電話/WhatsApp</label>
+              <input type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500" />
+            </div>
+            <div class="mb-6">
+              <label id="contact-type" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">諮詢類型</label>
+              <select class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <option value="oem">OEM/ODM定制諮詢</option>
+                <option value="product">產品採購</option>
+                <option value="sample">樣品申請</option>
+                <option value="other">其他</option>
+              </select>
             </div>
             <div class="mb-6">
               <label id="contact-message" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">留言</label>
-              <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary resize-none" required></textarea>
+              <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none" placeholder="請描述您的需求，如：定制數量、功能要求、預算等" required></textarea>
             </div>
-            <button type="submit" id="contact-submit" class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">提交</button>
+            <button type="submit" id="contact-submit" class="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">發送諮詢</button>
           </form>
         </div>
         <div class="space-y-8">
+          <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-6 rounded-xl border border-purple-200 dark:border-purple-800">
+            <h3 class="text-xl font-bold text-purple-700 dark:text-purple-300 mb-4 flex items-center gap-2">
+              <span>💬</span> OEM快速諮詢
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">我們提供專業的OEM/ODM定制服務，最低50件起訂，歡迎諮詢！</p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span class="text-purple-600">📧</span>
+                <span class="text-gray-700 dark:text-gray-300">qianlang0001@outlook.com</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-purple-600">📱</span>
+                <span class="text-gray-700 dark:text-gray-300">+852 9042 8586 (易先生)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-purple-600">⏰</span>
+                <span class="text-gray-700 dark:text-gray-300">24小時內回覆</span>
+              </div>
+            </div>
+          </div>
           <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
             <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">公司信息</h3>
             <div class="space-y-4">
@@ -338,15 +312,15 @@
       <div class="grid md:grid-cols-4 gap-8">
         <div class="md:col-span-2">
           <h3 class="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">前浪貿易</h3>
-          <p class="text-gray-400 mb-4">專注於引進國際頂級美容儀器，為客戶提供高品質、安全有效的美容護膚解決方案。</p>
+          <p class="text-gray-400 mb-4">專注於美容儀器OEM/ODM定制服務，為客戶提供高品質、安全有效的美容護膚解決方案。</p>
           <div class="flex space-x-4">
-            <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors">
+            <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-purple-600 rounded-full flex items-center justify-center transition-colors">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
             </a>
-            <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors">
+            <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-purple-600 rounded-full flex items-center justify-center transition-colors">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"></path></svg>
             </a>
-            <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-primary rounded-full flex items-center justify-center transition-colors">
+            <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-purple-600 rounded-full flex items-center justify-center transition-colors">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"></path></svg>
             </a>
           </div>
@@ -356,6 +330,7 @@
           <ul class="space-y-2">
             <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首頁</a></li>
             <li><a href="#products" class="text-gray-400 hover:text-white transition-colors">產品</a></li>
+            <li><a href="#oem" class="text-purple-400 hover:text-purple-300 transition-colors font-medium">OEM服務</a></li>
             <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">關於我們</a></li>
             <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">聯絡我們</a></li>
           </ul>
@@ -375,81 +350,295 @@
     </div>
   </footer>
 
+  <!-- 产品详情弹窗 -->
+  <div id="product-modal" class="fixed inset-0 z-50 hidden">
+    <div class="modal-overlay absolute inset-0 bg-black/60" onclick="closeProductModal()"></div>
+    <div class="relative flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+        <button onclick="closeProductModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors z-10">
+          <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <div id="modal-content" class="p-6">
+          <!-- 产品详情将通过JS动态填充 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 返回顶部按钮 -->
-  <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 w-12 h-12 bg-accent text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-pink-700">
+  <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 w-12 h-12 bg-purple-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-purple-700">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
     </svg>
   </button>
 
-  <!-- JavaScript -->
   <script>
     const translations = {
       'zh': {
-        'nav-home': '首頁', 'nav-products': '產品', 'nav-about': '關於我們', 'nav-contact': '聯絡我們',
-        'hero-title': '先進美容科技，煥發自然光彩', 'hero-subtitle': '探索我們的LED光療美容儀系列，享受專業護膚體驗',
-        'hero-button': '立即瀏覽', 'products-title': '熱門產品', 'products-view-all': '查看全部',
+        'nav-home': '首頁', 'nav-products': '產品', 'nav-oem': 'OEM服務', 'nav-about': '關於我們', 'nav-contact': '聯絡我們',
+        'hero-title': '先進美容科技 · OEM/ODM定制專家', 'hero-subtitle': '源頭工廠 · FDA認證 · 支援小批量定制 · 助您打造專屬品牌',
+        'oem-title': '一站式OEM/ODM定制服務', 'oem-subtitle': '從產品設計到包裝出貨，我們提供全方位的美容儀器定制解決方案',
+        'oem-1-title': 'Logo定制', 'oem-1-desc': '支持激光雕刻、印刷、包裝盒定制，打造您的專屬品牌形象',
+        'oem-2-title': '功能定制', 'oem-2-desc': '波長、功率、模式、溫度等參數均可按需調整，滿足不同市場需求',
+        'oem-3-title': '小批量起訂', 'oem-3-desc': '最低50件起訂，降低庫存風險，適合初創品牌和試單測試',
+        'oem-4-title': '快速交付', 'oem-4-desc': '標準產品7-15天交付，定制產品15-30天交付，加急服務可選',
+        'oem-process-title': 'OEM合作流程',
+        'oem-step-1': '諮詢需求', 'oem-step-2': '方案報價', 'oem-step-3': '確認樣品', 'oem-step-4': '簽署合同', 'oem-step-5': '生產交付',
+        'products-title': '熱銷產品', 'products-note': '點擊產品查看詳情，支持OEM定制',
         'about-title': '關於前浪', 'about-content': '前浪貿易有限公司專注於引進國際頂級美容儀器，為客戶提供高品質、安全有效的美容護膚解決方案。我們堅持創新與品質並重，致力於將先進的美容科技帶入每個家庭。',
         'about-mission': '使命', 'about-mission-content': '提供安全、高效、創新的美容護膚產品',
         'about-vision': '願景', 'about-vision-content': '成為亞太地區領先的美容儀器供應商',
         'contact-title': '聯絡我們', 'contact-name': '姓名', 'contact-email': '電子郵件',
-        'contact-phone': '電話', 'contact-message': '留言', 'contact-submit': '提交',
+        'contact-phone': '電話', 'contact-message': '留言', 'contact-submit': '發送諮詢',
         'footer-copyright': '版權所有 © 2024 前浪貿易有限公司', 'footer-address': '香港',
-        'add-cart': '加入購物車', 'buy-now': '立即購買',
-        'p1-name': '7色LED光子面罩美容儀', 'p1-desc': '家用臉部膚色軟硅膠紅光面膜儀',
-        'p2-name': 'FDA510K面頸一體LED紅光面罩', 'p2-desc': '大排燈光療嫩膚光子美頸儀',
-        'p3-name': 'LED大排燈美容儀', 'p3-desc': '紅外美容燈家用光子嫩膚支架理療伸縮燈',
-        'p4-name': '充電款霧化潤眼儀', 'p4-desc': '眼部霧化補水緩解乾澀疲勞護眼',
-        'p5-name': 'LED紅光美眼儀', 'p5-desc': 'FDA護眼硅膠家用皺紋臉部提拉按摩儀',
-        'p6-name': '一體式LED紅光面罩', 'p6-desc': '磁吸無線光療美容儀面罩FDA510K',
-        'p7-name': '無線磁吸紅光面罩', 'p7-desc': '紅藍光LED大排燈面部嫩膚電子儀',
-        'p8-name': '紅外光子嫩膚美唇儀', 'p8-desc': 'LED面膜唇紋紅藍電動面部護理儀'
+        'modal-detail': '產品詳情', 'modal-features': '核心功能', 'modal-specs': '产品规格', 'modal-oem': 'OEM定制選項', 'modal-inquire': '立即諮詢'
       },
       'en': {
-        'nav-home': 'Home', 'nav-products': 'Products', 'nav-about': 'About Us', 'nav-contact': 'Contact',
-        'hero-title': 'Advanced Beauty Technology, Radiant Natural Glow', 'hero-subtitle': 'Explore our LED light therapy beauty device series, enjoy professional skincare experience',
-        'hero-button': 'Browse Now', 'products-title': 'Hot Products', 'products-view-all': 'View All',
-        'about-title': 'About Qianlang', 'about-content': 'Qianlang Trading Co., Ltd. specializes in introducing international top beauty devices, providing customers with high-quality, safe and effective beauty skincare solutions. We adhere to innovation and quality, committed to bringing advanced beauty technology to every home.',
+        'nav-home': 'Home', 'nav-products': 'Products', 'nav-oem': 'OEM Service', 'nav-about': 'About Us', 'nav-contact': 'Contact',
+        'hero-title': 'Advanced Beauty Tech · OEM/ODM Expert', 'hero-subtitle': 'Factory Source · FDA Certified · Small Batch Available · Build Your Brand',
+        'oem-title': 'One-Stop OEM/ODM Service', 'oem-subtitle': 'Complete beauty device customization from design to packaging',
+        'oem-1-title': 'Logo Customization', 'oem-1-desc': 'Laser engraving, printing, custom packaging to build your brand identity',
+        'oem-2-title': 'Function Customization', 'oem-2-desc': 'Wavelength, power, modes, temperature all adjustable per your needs',
+        'oem-3-title': 'Low MOQ', 'oem-3-desc': 'Start from 50 pieces, reduce inventory risk, perfect for startups',
+        'oem-4-title': 'Fast Delivery', 'oem-4-desc': 'Standard 7-15 days, custom 15-30 days, express service available',
+        'oem-process-title': 'OEM Process',
+        'oem-step-1': 'Inquiry', 'oem-step-2': 'Quote', 'oem-step-3': 'Sample', 'oem-step-4': 'Contract', 'oem-step-5': 'Production',
+        'products-title': 'Hot Products', 'products-note': 'Click to view details, OEM available',
+        'about-title': 'About Qianlang', 'about-content': 'Qianlang Trading Co., Ltd. specializes in introducing international top beauty devices, providing customers with high-quality, safe and effective beauty skincare solutions.',
         'about-mission': 'Mission', 'about-mission-content': 'Provide safe, efficient, innovative beauty skincare products',
         'about-vision': 'Vision', 'about-vision-content': 'Become the leading beauty device supplier in the Asia-Pacific region',
         'contact-title': 'Contact Us', 'contact-name': 'Name', 'contact-email': 'Email',
-        'contact-phone': 'Phone', 'contact-message': 'Message', 'contact-submit': 'Submit',
+        'contact-phone': 'Phone', 'contact-message': 'Message', 'contact-submit': 'Send Inquiry',
         'footer-copyright': 'Copyright © 2024 Qianlang Trading Co., Ltd.', 'footer-address': 'Hong Kong',
-        'add-cart': 'Add to Cart', 'buy-now': 'Buy Now',
-        'p1-name': '7-Color LED Photon Mask', 'p1-desc': 'Home facial skin color soft silicone red light mask device',
-        'p2-name': 'FDA510K Face Neck LED Mask', 'p2-desc': 'Large panel light therapy rejuvenation photon neck device',
-        'p3-name': 'LED Panel Beauty Device', 'p3-desc': 'Infrared beauty lamp home photon rejuvenation stand therapy telescopic lamp',
-        'p4-name': 'Rechargeable Eye Mist Device', 'p4-desc': 'Eye mist hydration relieves dryness and fatigue',
-        'p5-name': 'LED Red Light Eye Device', 'p5-desc': 'FDA eye care silicone home wrinkle facial lifting massage device',
-        'p6-name': 'All-in-One LED Red Light Mask', 'p6-desc': 'Magnetic wireless light therapy beauty mask FDA510K',
-        'p7-name': 'Wireless Magnetic Red Light Mask', 'p7-desc': 'Red blue light LED panel facial rejuvenation electronic device',
-        'p8-name': 'Infrared Photon Lip Device', 'p8-desc': 'LED mask lip wrinkle red blue electric facial care device'
+        'modal-detail': 'Product Details', 'modal-features': 'Key Features', 'modal-specs': 'Specifications', 'modal-oem': 'OEM Options', 'modal-inquire': 'Inquire Now'
       }
     };
 
+    const products = [
+      {
+        id: 1,
+        name: { zh: '7色LED光子面罩美容儀', en: '7-Color LED Photon Mask' },
+        shortDesc: { zh: '家用臉部軟硅膠紅光面膜儀', en: 'Home Facial Soft Silicone Red Light Mask' },
+        description: { zh: '採用7色LED光療技術，深層護理肌膚。柔軟硅膠材質，佩戴舒適。紅光、藍光、綠光、黃光等多種模式，針對不同肌膚問題。適合家用及美容院使用。', en: 'Featuring 7-color LED therapy technology for deep skin care. Soft silicone material for comfortable wear. Multiple modes including red, blue, green, yellow light for various skin concerns. Perfect for home and salon use.' },
+        price: 'HK$1,280',
+        image: '7色LED光子面罩美容儀家用脸部肤色软硅胶俄语红光面膜仪.jpg',
+        features: { zh: ['7色光療模式', '柔軟親肤硅膠', '紅藍黃綠光護理', '智能定時功能', 'USB充電設計'], en: ['7-color therapy modes', 'Soft skin-friendly silicone', 'Red/Blue/Yellow/Green light', 'Smart timer function', 'USB rechargeable'] },
+        specs: { zh: ['波長：630nm-640nm（紅光）', '材質：食品級硅膠', '電池：1200mAh鋰電池', '充電：DC 5V/1A', '重量：150g'], en: ['Wavelength: 630nm-640nm (Red)', 'Material: Food-grade silicone', 'Battery: 1200mAh Li-ion', 'Charging: DC 5V/1A', 'Weight: 150g'] },
+        oemOptions: { zh: ['可定制Logo和包裝', '可調整光波波長組合', 'MOQ：50件'], en: ['Custom logo & packaging', 'Adjustable wavelength combos', 'MOQ: 50 pcs'] }
+      },
+      {
+        id: 2,
+        name: { zh: 'FDA510K面頸一體LED紅光面罩', en: 'FDA510K Face & Neck LED Mask' },
+        shortDesc: { zh: '大排燈光療嫩膚光子美頸儀', en: 'Large Panel Light Therapy Rejuvenation' },
+        description: { zh: 'FDA 510K認證產品，面頸一體設計。採用大功率LED陣列，光療效果更強勁。紅光、藍光、近紅外光混合光源，全面護理面部和頸部肌膚。', en: 'FDA 510K certified, face & neck all-in-one design. High-power LED array for stronger therapy effects. Mixed red, blue, near-infrared light sources for comprehensive face and neck care.' },
+        price: 'HK$1,580',
+        image: 'FDA510K面颈一体LED红光面罩美容仪大排灯光疗嫩肤光子美颈仪.jpg',
+        features: { zh: ['FDA 510K認證', '面頸一體設計', '大功率LED陣列', '紅藍光混合模式', '智能觸控操作'], en: ['FDA 510K Certified', 'Face & neck design', 'High-power LED array', 'Red & blue mixed modes', 'Smart touch control'] },
+        specs: { zh: ['FDA 510K認證', '紅光波長：630-640nm', '藍光波長：460-465nm', '近紅外：850nm', '額定功率：36W'], en: ['FDA 510K Certified', 'Red wavelength: 630-640nm', 'Blue wavelength: 460-465nm', 'Near-infrared: 850nm', 'Power: 36W'] },
+        oemOptions: { zh: ['可定制Logo和包裝', '可選不同功率配置', 'MOQ：50件'], en: ['Custom logo & packaging', 'Different power options', 'MOQ: 50 pcs'] }
+      },
+      {
+        id: 3,
+        name: { zh: 'LED大排燈美容儀', en: 'LED Panel Beauty Device' },
+        shortDesc: { zh: '紅外美容燈家用光子嫩膚支架理療', en: 'Infrared Panel Skin Rejuvenation' },
+        description: { zh: '便攜式大排燈設計，採用紅外線和LED光子技術。伸缩支架可調節高度和角度，適合全身光療護理。高功率光源，專業級護理效果。', en: 'Portable panel light design with infrared and LED photon technology. Adjustable stand for height and angle, suitable for full-body light therapy. High-power light source for professional results.' },
+        price: 'HK$2,380',
+        image: 'LED大排灯美容仪红外美容灯家用光子嫩肤红光支架理疗伸缩灯抗衰.jpg',
+        features: { zh: ['紅外線+LED光子', '360度旋轉支架', '多檔亮度調節', '全身護理適用', '遙控器操作'], en: ['Infrared + LED photon', '360° rotating stand', 'Multi-level brightness', 'Full body therapy', 'Remote control'] },
+        specs: { zh: ['紅外波長：850nm', 'LED數量：200顆', '支架高度：50-170cm', '額定功率：60W', '照射面積：40x30cm'], en: ['IR wavelength: 850nm', 'LED count: 200pcs', 'Stand height: 50-170cm', 'Power: 60W', 'Coverage: 40x30cm'] },
+        oemOptions: { zh: ['可定制Logo和包裝', '可調整光源功率', 'MOQ：30件'], en: ['Custom logo & packaging', 'Adjustable power', 'MOQ: 30 pcs'] }
+      },
+      {
+        id: 4,
+        name: { zh: '充電款霧化潤眼儀', en: 'Rechargeable Eye Mist Device' },
+        shortDesc: { zh: '眼部霧化補水緩解乾澀疲勞', en: 'Eye Hydration & Fatigue Relief' },
+        description: { zh: '納米級霧化技術，深層補水眼部肌膚。USB便捷充電，小巧便攜。三合一功能：霧化噴霧、熱敷按摩、冷敷舒緩。緩解眼部乾澀、疲勞、黑眼圈等問題。', en: 'Nano-mist technology for deep eye hydration. USB rechargeable, compact and portable. 3-in-1: mist spray, warm compress massage, cool compress. Relieves dry eyes, fatigue, and dark circles.' },
+        price: 'HK$680',
+        image: '充电款雾化润眼仪眼部雾化补水缓解干涩疲劳护眼洗护养护三合一.jpg',
+        features: { zh: ['納米霧化技術', '熱敷/冷敷/霧化三合一', 'USB充電', '便攜小巧', '自動關機保護'], en: ['Nano-mist technology', '3-in-1 warm/cool/mist', 'USB rechargeable', 'Compact & portable', 'Auto shut-off protection'] },
+        specs: { zh: ['霧化粒徑：納米級', '水箱容量：10ml', '電池：800mAh', '充電：DC 5V', '重量：80g'], en: ['Mist particle: Nano-level', 'Tank capacity: 10ml', 'Battery: 800mAh', 'Charging: DC 5V', 'Weight: 80g'] },
+        oemOptions: { zh: ['可定制Logo和包裝', '可調整霧化量', 'MOQ：50件'], en: ['Custom logo & packaging', 'Adjustable mist levels', 'MOQ: 50 pcs'] }
+      },
+      {
+        id: 5,
+        name: { zh: 'LED紅光美眼儀', en: 'LED Red Light Eye Device' },
+        shortDesc: { zh: 'FDA護眼硅膠皺紋提拉按摩', en: 'FDA Eye Care Wrinkle Lifting' },
+        description: { zh: 'FDA認證眼部護理儀，採用紅光和微電流技術。硅膠頭設計親膚舒適，有效改善眼周細紋、黑眼圈、眼袋等問題。便攜式設計，適合家用和旅行使用。', en: 'FDA certified eye care device with red light and micro-current technology. Skin-friendly silicone head design, effectively improves fine lines, dark circles, and puffiness. Portable design for home and travel use.' },
+        price: 'HK$880',
+        image: 'LED红光美眼仪光子嫩肤仪FDA护眼硅胶家用皱纹脸部提拉按摩美容仪.jpg',
+        features: { zh: ['FDA認證', '紅光+微電流', '硅膠親肤頭', '眼周護理專用', '便攜式設計'], en: ['FDA Certified', 'Red light + micro-current', 'Silicone head', 'Eye care specific', 'Portable design'] },
+        specs: { zh: ['FDA 510K認證', '紅光波長：630nm', '微電流：0.5-2.5mA', '電池：500mAh', '重量：45g'], en: ['FDA 510K Certified', 'Red wavelength: 630nm', 'Micro-current: 0.5-2.5mA', 'Battery: 500mAh', 'Weight: 45g'] },
+        oemOptions: { zh: ['可定制Logo和包裝', '可調整微電流強度', 'MOQ：50件'], en: ['Custom logo & packaging', 'Adjustable current intensity', 'MOQ: 50 pcs'] }
+      },
+      {
+        id: 6,
+        name: { zh: '一體式LED紅光面罩', en: 'All-in-One LED Red Light Mask' },
+        shortDesc: { zh: '磁吸無線光療美容儀FDA510K', en: 'Magnetic Wireless Light Therapy' },
+        description: { zh: '磁吸式一體面罩，徹底告別有線束縛。FDA 510K認證品質，光療效果卓越。採用優質硅膠和ABS材質，佩戴舒適貼合。支援多種光療模式。', en: 'Magnetic all-in-one mask, free from wired restrictions. FDA 510K certified quality with excellent therapy effects. Premium silicone and ABS materials for comfortable fit. Multiple therapy modes supported.' },
+        price: 'HK$1,880',
+        image: '一体式LED红光面罩磁吸无线光疗美容仪面罩FDA510K硅胶光疗大排灯.jpg',
+        features: { zh: ['磁吸無線設計', 'FDA 510K認證', '優質硅膠材質', '多種光療模式', '舒適貼合面部'], en: ['Magnetic wireless design', 'FDA 510K Certified', 'Premium silicone', 'Multiple therapy modes', 'Comfortable fit'] },
+        specs: { zh: ['FDA 510K認證', '紅光波長：630-640nm', '藍光波長：460-465nm', '鋰電池供電', '使用時間：30分鐘/次'], en: ['FDA 510K Certified', 'Red wavelength: 630-640nm', 'Blue wavelength: 460-465nm', 'Li-ion battery powered', 'Usage: 30min/session'] },
+        oemOptions: { zh: ['可定制Logo和包裝', '可調整光波組合', 'MOQ：50件'], en: ['Custom logo & packaging', 'Adjustable wavelength combos', 'MOQ: 50 pcs'] }
+      },
+      {
+        id: 7,
+        name: { zh: '無線磁吸紅光面罩', en: 'Wireless Magnetic Red Light Mask' },
+        shortDesc: { zh: '紅藍光LED大排燈面部嫩膚', en: 'Red Blue Light Panel Facial' },
+        description: { zh: '升級版磁吸面罩，結合紅藍光療法。有效改善痘痘肌膚、色斑問題。採用大功率LED，光療效果更強。便攜易用，適合日常護理。', en: 'Upgraded magnetic mask combining red and blue light therapy. Effectively improves acne-prone skin and pigmentation issues. High-power LEDs for stronger therapy effects. Portable and easy to use for daily care.' },
+        price: 'HK$1,680',
+        image: '无线磁吸红光面罩FDA510K红蓝光LED大排灯面部嫩肤电子红外美容仪.jpg',
+        features: { zh: ['紅藍光混合療法', '大功率LED', '磁吸式佩戴', '無需接線', '適合日常護理'], en: ['Red & blue mixed therapy', 'High-power LEDs', 'Magnetic wear', 'Wire-free', 'Daily care suitable'] },
+        specs: { zh: ['紅光波長：630nm', '藍光波長：465nm', 'LED數量：120顆', '電池：2000mAh', '使用時間：20-30分鐘'], en: ['Red wavelength: 630nm', 'Blue wavelength: 465nm', 'LED count: 120pcs', 'Battery: 2000mAh', 'Usage: 20-30min'] },
+        oemOptions: { zh: ['可定制Logo和包裝', '可調整光波波長', 'MOQ：50件'], en: ['Custom logo & packaging', 'Adjustable wavelengths', 'MOQ: 50 pcs'] }
+      },
+      {
+        id: 8,
+        name: { zh: '紅外光子嫩膚美唇儀', en: 'Infrared Photon Lip Device' },
+        shortDesc: { zh: 'LED面膜唇紋紅藍電動面部護理', en: 'LED Lip Wrinkle Care' },
+        description: { zh: '專為唇部護理設計的光子嫩膚儀。採用紅外線和LED光子技術，有效淡化唇紋、深層保濕、改善唇色。mini便攜設計，隨時隨地呵護唇部肌膚。', en: 'Photon skin care device designed specifically for lip care. Using infrared and LED photon technology to effectively reduce lip lines, deeply hydrate, and improve lip color. Mini portable design for lip care anytime, anywhere.' },
+        price: 'HK$580',
+        image: '红外光子嫩肤美唇仪LED面膜唇纹红蓝电动面部护理FDA510K美容仪.jpg',
+        features: { zh: ['唇部專用設計', '紅外+光子技術', '淡化唇紋', '深層保濕', '便攜mini設計'], en: ['Lip-specific design', 'IR + photon technology', 'Reduces lip lines', 'Deep hydration', 'Mini portable'] },
+        specs: { zh: ['紅外波長：850nm', '光子波長：630nm', '電池：300mAh', '重量：30g', '充電：USB'], en: ['IR wavelength: 850nm', 'Photon wavelength: 630nm', 'Battery: 300mAh', 'Weight: 30g', 'Charging: USB'] },
+        oemOptions: { zh: ['可定制Logo和包裝', '可調整功能模式', 'MOQ：50件'], en: ['Custom logo & packaging', 'Adjustable modes', 'MOQ: 50 pcs'] }
+      }
+    ];
+
     let currentLang = localStorage.getItem('currentLang') || 'zh';
+
+    function renderProducts() {
+      const container = document.getElementById('products-container');
+      container.innerHTML = products.map((product, index) => `
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer fade-in" style="animation-delay: ${index * 0.1}s" onclick="openProductModal(${product.id})">
+          <div class="relative overflow-hidden">
+            <img src="images/${product.image}" alt="${product.name[currentLang]}" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" />
+            <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">${product.price}</div>
+            <div class="absolute top-4 right-4 bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-medium">OEM</div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">${product.name[currentLang]}</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">${product.shortDesc[currentLang]}</p>
+            <div class="flex gap-2">
+              <button class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium">${currentLang === 'zh' ? '查看詳情' : 'View Details'}</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openProductModal(productId) {
+      const product = products.find(p => p.id === productId);
+      const lang = currentLang;
+      const modal = document.getElementById('product-modal');
+      const content = document.getElementById('modal-content');
+      
+      content.innerHTML = `
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <div class="relative">
+              <img src="images/${product.image}" alt="${product.name[lang]}" class="w-full rounded-xl shadow-lg" />
+              <div class="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
+                <span>🎨</span> OEM定制
+              </div>
+            </div>
+            <div class="mt-4 bg-gradient-to-br from-purple-600 to-purple-800 border-2 border-purple-400 rounded-xl p-5 text-white shadow-lg">
+              <h4 class="font-bold text-lg mb-3 flex items-center gap-2">
+                <span class="text-2xl">✨</span> ${translations[lang]['modal-oem']}
+              </h4>
+              <ul class="space-y-2 text-sm">
+                ${product.oemOptions[lang].map(opt => `<li class="flex items-start gap-2"><span class="text-purple-200">•</span> ${opt}</li>`).join('')}
+              </ul>
+              <div class="mt-4 pt-4 border-t border-purple-400">
+                <p class="text-purple-200 text-xs flex items-center gap-2">
+                  <span>📦</span> ${lang === 'zh' ? '最低起訂量：50件' : 'MOQ: 50 pcs'}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-900/30 dark:to-purple-800/30 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-bold mb-3">
+              <span>🏭</span> OEM/ODM Available
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">${product.name[lang]}</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">${product.shortDesc[lang]}</p>
+            <div class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-accent bg-clip-text text-transparent mb-6">${product.price}</div>
+            
+            <h3 class="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+              <span>📋</span> ${translations[lang]['modal-detail']}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">${product.description[lang]}</p>
+            
+            <h3 class="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+              <span>✨</span> ${translations[lang]['modal-features']}
+            </h3>
+            <ul class="space-y-2 mb-6">
+              ${product.features[lang].map(f => `
+                <li class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+                  <svg class="w-5 h-5 text-purple-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  ${f}
+                </li>
+              `).join('')}
+            </ul>
+            
+            <h3 class="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+              <span>📐</span> ${translations[lang]['modal-specs']}
+            </h3>
+            <ul class="space-y-1 mb-6 text-sm text-gray-600 dark:text-gray-400">
+              ${product.specs[lang].map(s => `<li class="flex items-start gap-2"><span class="text-purple-400">•</span> ${s}</li>`).join('')}
+            </ul>
+            
+            <button onclick="scrollToContactWithOem('${product.name[lang]}')" class="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+              <span class="text-xl">💬</span> ${translations[lang]['modal-inquire']}
+            </button>
+            <p class="text-center text-purple-600 dark:text-purple-400 text-xs mt-3">${lang === 'zh' ? '點擊此按鈕，自動填充產品信息到諮詢表單' : 'Click to auto-fill product info in inquiry form'}</p>
+          </div>
+        </div>
+      `;
+      
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductModal() {
+      document.getElementById('product-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function scrollToContactWithOem(productName) {
+      closeProductModal();
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        const messageField = document.querySelector('#contact-form textarea');
+        const inquiryType = document.querySelector('#contact-form select');
+        if (messageField) {
+          const lang = currentLang;
+          const defaultMsg = lang === 'zh' 
+            ? `你好，我想諮詢關於【${productName}】的OEM定制詳情，請問最低起訂量、價格和交貨時間是多少？`
+            : `Hello, I would like to inquire about OEM customization details for 【${productName}】. What is the MOQ, price and delivery time?`;
+          messageField.value = defaultMsg;
+          messageField.focus();
+        }
+        if (inquiryType) {
+          inquiryType.value = 'oem';
+        }
+      }, 100);
+    }
 
     function translatePage() {
       const lang = translations[currentLang];
-      document.querySelectorAll('[data-translate]').forEach(link => {
-        const key = link.getAttribute('data-translate');
-        if (lang[key]) link.textContent = lang[key];
+      document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (lang[key]) el.textContent = lang[key];
       });
-      const elements = ['hero-title', 'hero-subtitle', 'hero-button', 'products-title', 'products-view-all', 'about-title', 'about-content', 'about-mission', 'about-mission-content', 'about-vision', 'about-vision-content', 'contact-title', 'contact-name', 'contact-email', 'contact-phone', 'contact-message', 'contact-submit', 'footer-copyright', 'footer-address'];
-      elements.forEach(id => {
-        const el = document.getElementById(id);
-        if (el && lang[id]) el.textContent = lang[id];
-      });
-      for (let i = 1; i <= 8; i++) {
-        ['name', 'desc', 'cart', 'buy'].forEach(suffix => {
-          const el = document.getElementById(`p${i}-${suffix}`);
-          if (el) {
-            if (suffix === 'cart') el.textContent = lang['add-cart'];
-            else if (suffix === 'buy') el.textContent = lang['buy-now'];
-            else if (lang[`p${i}-${suffix}`]) el.textContent = lang[`p${i}-${suffix}`];
-          }
-        });
-      }
+      renderProducts();
     }
 
     function switchLang(lang) {
@@ -493,9 +682,10 @@
         document.getElementById('theme-icon').textContent = '🌞';
       }
       updateLangButtons();
+      translatePage();
       document.getElementById('contact-form').addEventListener('submit', (e) => {
         e.preventDefault();
-        alert(currentLang === 'zh' ? '感謝您的留言！我們將儘快與您聯絡。' : 'Thank you for your message! We will contact you soon.');
+        alert(currentLang === 'zh' ? '感謝您的查詢！我們將在24小時內與您聯繫。' : 'Thank you for your inquiry! We will contact you within 24 hours.');
         e.target.reset();
       });
     });
@@ -512,6 +702,9 @@
     window.switchLang = switchLang;
     window.toggleTheme = toggleTheme;
     window.toggleMobileMenu = toggleMobileMenu;
+    window.openProductModal = openProductModal;
+    window.closeProductModal = closeProductModal;
+    window.scrollToContactWithOem = scrollToContactWithOem;
   </script>
 </body>
 </html>
